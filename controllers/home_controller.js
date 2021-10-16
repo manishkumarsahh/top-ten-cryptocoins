@@ -1,7 +1,7 @@
 const path = require('path');
 const Coin = require("../models/coins");
 const axios = require('axios');
-async function  sendToDb(req,res) {
+async function  sendToDb(req,res) {                 //data sent to database
     try {
       const response = await axios.get('https://api.wazirx.com/api/v2/tickers');
       let fetchedData = response.data;
@@ -14,7 +14,7 @@ async function  sendToDb(req,res) {
   }
 
 
-  async function getFromDb(req,res) {
+  async function getFromDb(req,res) {               //data fetched from database
     try {
       
       const pushData = await Coin.find({});
@@ -28,9 +28,9 @@ async function  sendToDb(req,res) {
 module.exports.fetch =async function(req, res){
     
     sendToDb();
-    const data = await getFromDb();
-    const myJSON = JSON.stringify(data);
-    const myArr = myJSON.split("}");
+    const data = await getFromDb();                         //get data from db
+    const myJSON = JSON.stringify(data);                    //convert to string
+    const myArr = myJSON.split("}");                        // array of string
     let firstTen = [];
     for(let i=0;i<10;i++){
       myArr[i].replace(/\/$/, '');
@@ -42,7 +42,7 @@ module.exports.fetch =async function(req, res){
 
 }
 
-module.exports.home = function(req,res){
+module.exports.home = function(req,res){                    // redirecting to html page
     res.sendFile(path.join(__dirname + '/../index.html'));
 
 }
