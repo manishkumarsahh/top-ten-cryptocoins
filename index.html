@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Coins</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+
+$(document).ready(function(){
+
+  
+$.ajax({
+    type: "GET",
+    url: "http://localhost:8000/fetch",
+
+    // data: '$format=json',
+
+    dataType: 'json',
+    success: function (data) {
+        let coinname = [];
+        let lastTraded = [];
+        let buy = [];
+        let sell = [];
+        let Volume = [];
+        let BaseUnit = [];
+        $.each(data,function(d,results){
+            // console.log(data);
+            let firstTen = [];
+            
+            for(let i=0;i<10;i++){
+                let arrLength = data[i].length;
+                
+                coinname.push(data[i].split(',\\\"name\\\":\\\"').pop().split('\\\"')[0]); 
+                lastTraded.push(data[i].split('"last\\\":\\\"').pop().split('\\\"')[0]); 
+                buy.push(data[i].split('\\\"buy\\\":\\\"').pop().split('\\\"')[0]); 
+                sell.push(data[i].split('sell\\\":\\\"').pop().split('\\\"')[0]); 
+                Volume.push(data[i].split('\"volume\\\":\\\"').pop().split('\\\",')[0]); 
+                BaseUnit.push(data[i].split('"base_unit\\\":\\\"').pop().split('\\\"')[0]); 
+                
+            }
+            console.log(data)
+        })
+        $("#apiData").append(
+
+                
+
+                +"<tbody>"
+                    +"<tr>"
+                        +"<td>"+coinname[0]+"</td>"
+                        +"<td>"+lastTraded[0]+"</td>"
+                        +"<td>"+buy[0]+"</td>"
+                        +"<td>"+sell[0]+"</td>"
+                        +"<td>"+Volume[0]+"</td>"
+                        +"<td>"+BaseUnit[0]+"</td>"
+
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[1]+"</td>"
+                        +"<td>"+lastTraded[1]+"</td>"
+                        +"<td>"+buy[1]+"</td>"
+                        +"<td>"+sell[1]+"</td>"
+                        +"<td>"+Volume[1]+"</td>"
+                        +"<td>"+BaseUnit[1]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[2]+"</td>"
+                        +"<td>"+lastTraded[2]+"</td>"
+                        +"<td>"+buy[2]+"</td>"
+                        +"<td>"+sell[2]+"</td>"
+                        +"<td>"+Volume[2]+"</td>"
+                        +"<td>"+BaseUnit[2]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[3]+"</td>"
+                        +"<td>"+lastTraded[3]+"</td>"
+                        +"<td>"+buy[3]+"</td>"
+                        +"<td>"+sell[3]+"</td>"
+                        +"<td>"+Volume[3]+"</td>"
+                        +"<td>"+BaseUnit[3]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[4]+"</td>"
+                        +"<td>"+lastTraded[4]+"</td>"
+                        +"<td>"+buy[4]+"</td>"
+                        +"<td>"+sell[4]+"</td>"
+                        +"<td>"+Volume[4]+"</td>"
+                        +"<td>"+BaseUnit[4]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[5]+"</td>"
+                        +"<td>"+lastTraded[5]+"</td>"
+                        +"<td>"+buy[5]+"</td>"
+                        +"<td>"+sell[5]+"</td>"
+                        +"<td>"+Volume[5]+"</td>"
+                        +"<td>"+BaseUnit[5]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[6]+"</td>"
+                        +"<td>"+lastTraded[6]+"</td>"
+                        +"<td>"+buy[6]+"</td>"
+                        +"<td>"+sell[6]+"</td>"
+                        +"<td>"+Volume[6]+"</td>"
+                        +"<td>"+BaseUnit[6]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[7]+"</td>"
+                        +"<td>"+lastTraded[7]+"</td>"
+                        +"<td>"+buy[7]+"</td>"
+                        +"<td>"+sell[7]+"</td>"
+                        +"<td>"+Volume[7]+"</td>"
+                        +"<td>"+BaseUnit[7]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[8]+"</td>"
+                        +"<td>"+lastTraded[8]+"</td>"
+                        +"<td>"+buy[8]+"</td>"
+                        +"<td>"+sell[8]+"</td>"
+                        +"<td>"+Volume[8]+"</td>"
+                        +"<td>"+BaseUnit[8]+"</td>"
+                       
+                    +"</tr>"
+                    +"<tr>"
+                        +"<td>"+coinname[9]+"</td>"
+                        +"<td>"+lastTraded[9]+"</td>"
+                        +"<td>"+buy[9]+"</td>"
+                        +"<td>"+sell[9]+"</td>"
+                        +"<td>"+Volume[9]+"</td>"
+                        +"<td>"+BaseUnit[9]+"</td>"
+                       
+                    +"</tr>"
+                +"</tbody>" )
+        } 
+        
+});
+
+});
+
+</script>
+</head>
+<body>
+
+
+    <table id="apiTable">
+
+        <thead>
+            <tr>
+            <th>Platform</th>
+            <br>
+            <th>Last Traded Price</th>
+            <br>
+            <th>Buy</th>
+            <br>
+            <th>Sell</th>
+            <br>
+            <th>Difference</th>
+            <br>
+            <th>Saving</th>
+            
+        </tr>
+        </thead>
+
+       
+
+
+
+
+        <tbody id="apiData"></tbody>    
+
+    </table>
+
+
+        <link rel="stylesheet" href="./assets/app.css">
+
+</body>
+</html> 
