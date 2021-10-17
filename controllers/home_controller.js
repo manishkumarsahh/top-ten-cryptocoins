@@ -14,7 +14,7 @@ async function  sendToDb(req,res) {                 //data sent to database
   }
 
 
-  async function getFromDb(req,res) {               //data fetched from database
+  async function getFromDb(req,res) {           
     try {
       
       const pushData = await Coin.find({});
@@ -28,9 +28,9 @@ async function  sendToDb(req,res) {                 //data sent to database
 module.exports.fetch =async function(req, res){
     
     sendToDb();
-    const data = await getFromDb();                         //get data from db
-    const myJSON = JSON.stringify(data);                    //convert to string
-    const myArr = myJSON.split("}");                        // array of string
+    const data = await getFromDb();
+    const myJSON = JSON.stringify(data);
+    const myArr = myJSON.split("}");
     let firstTen = [];
     for(let i=0;i<10;i++){
       myArr[i].replace(/\/$/, '');
@@ -42,7 +42,7 @@ module.exports.fetch =async function(req, res){
 
 }
 
-module.exports.home = function(req,res){                    // redirecting to html page
+module.exports.home = function(req,res){
     res.sendFile(path.join(__dirname + '/../index.html'));
 
 }

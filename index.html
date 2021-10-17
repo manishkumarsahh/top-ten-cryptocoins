@@ -3,6 +3,9 @@
 <head>
 <title>Coins</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
 <script>
 
 
@@ -24,7 +27,7 @@ $.ajax({
         let Volume = [];
         let BaseUnit = [];
         $.each(data,function(d,results){
-            // console.log(data);
+            console.log(data);
             let firstTen = [];
             
             for(let i=0;i<10;i++){
@@ -45,10 +48,12 @@ $.ajax({
                 
 
                 +"<tbody>"
+                    
                     +"<tr>"
+                        +"<td>1</td>"
                         +"<td>"+coinname[0]+"</td>"
                         +"<td>"+lastTraded[0]+"</td>"
-                        +"<td>"+buy[0]+"</td>"
+                        +"<td>"+buy[0]+"/</td>"
                         +"<td>"+sell[0]+"</td>"
                         +"<td>"+Volume[0]+"</td>"
                         +"<td>"+BaseUnit[0]+"</td>"
@@ -56,87 +61,101 @@ $.ajax({
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>2</td>"
                         +"<td>"+coinname[1]+"</td>"
                         +"<td>"+lastTraded[1]+"</td>"
-                        +"<td>"+buy[1]+"</td>"
+                        +"<td>"+buy[1]+"/</td>"
                         +"<td>"+sell[1]+"</td>"
                         +"<td>"+Volume[1]+"</td>"
                         +"<td>"+BaseUnit[1]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>3</td>"
                         +"<td>"+coinname[2]+"</td>"
                         +"<td>"+lastTraded[2]+"</td>"
-                        +"<td>"+buy[2]+"</td>"
+                        +"<td>"+buy[2]+"/</td>"
                         +"<td>"+sell[2]+"</td>"
                         +"<td>"+Volume[2]+"</td>"
                         +"<td>"+BaseUnit[2]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>4</td>"
                         +"<td>"+coinname[3]+"</td>"
                         +"<td>"+lastTraded[3]+"</td>"
-                        +"<td>"+buy[3]+"</td>"
+                        +"<td>"+buy[3]+"/</td>"
                         +"<td>"+sell[3]+"</td>"
                         +"<td>"+Volume[3]+"</td>"
                         +"<td>"+BaseUnit[3]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>5</td>"
                         +"<td>"+coinname[4]+"</td>"
                         +"<td>"+lastTraded[4]+"</td>"
-                        +"<td>"+buy[4]+"</td>"
+                        +"<td>"+buy[4]+"/</td>"
                         +"<td>"+sell[4]+"</td>"
                         +"<td>"+Volume[4]+"</td>"
                         +"<td>"+BaseUnit[4]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>6</td>"
                         +"<td>"+coinname[5]+"</td>"
                         +"<td>"+lastTraded[5]+"</td>"
-                        +"<td>"+buy[5]+"</td>"
+                        +"<td>"+buy[5]+"/</td>"
                         +"<td>"+sell[5]+"</td>"
                         +"<td>"+Volume[5]+"</td>"
                         +"<td>"+BaseUnit[5]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>7</td>"
                         +"<td>"+coinname[6]+"</td>"
                         +"<td>"+lastTraded[6]+"</td>"
-                        +"<td>"+buy[6]+"</td>"
+                        +"<td>"+buy[6]+"/</td>"
                         +"<td>"+sell[6]+"</td>"
                         +"<td>"+Volume[6]+"</td>"
                         +"<td>"+BaseUnit[6]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>8</td>"
                         +"<td>"+coinname[7]+"</td>"
                         +"<td>"+lastTraded[7]+"</td>"
-                        +"<td>"+buy[7]+"</td>"
+                        +"<td>"+buy[7]+"/</td>"
                         +"<td>"+sell[7]+"</td>"
                         +"<td>"+Volume[7]+"</td>"
                         +"<td>"+BaseUnit[7]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>9</td>"
                         +"<td>"+coinname[8]+"</td>"
                         +"<td>"+lastTraded[8]+"</td>"
-                        +"<td>"+buy[8]+"</td>"
+                        +"<td>"+buy[8]+"/</td>"
                         +"<td>"+sell[8]+"</td>"
                         +"<td>"+Volume[8]+"</td>"
                         +"<td>"+BaseUnit[8]+"</td>"
                        
                     +"</tr>"
                     +"<tr>"
+                        +"<td>10</td>"
                         +"<td>"+coinname[9]+"</td>"
                         +"<td>"+lastTraded[9]+"</td>"
-                        +"<td>"+buy[9]+"</td>"
+                        +"<td>"+buy[9]+"/</td>"
                         +"<td>"+sell[9]+"</td>"
                         +"<td>"+Volume[9]+"</td>"
                         +"<td>"+BaseUnit[9]+"</td>"
                        
                     +"</tr>"
                 +"</tbody>" )
+
+
+                $('table').addClass("responsive-table");
+                $('tr').addClass("table-header");
+                // $('td').addClass("");
         } 
         
 });
@@ -150,13 +169,15 @@ $.ajax({
 
     <table id="apiTable">
 
-        <thead>
-            <tr>
-            <th>Platform</th>
+        <thead style="background-color:  #ffffff;" >
+            <tr class="table-header"style="background-color:  #ffffff;">
+                <th>#</th>
+            <br><br><br>
+            <th>Platform </th>
             <br>
-            <th>Last Traded Price</th>
+            <th>Last Traded</th>
             <br>
-            <th>Buy</th>
+            <th>Buy/</th>
             <br>
             <th>Sell</th>
             <br>
@@ -176,8 +197,48 @@ $.ajax({
 
     </table>
 
-
-        <link rel="stylesheet" href="./assets/app.css">
+    <style>
+        body {
+      font-family: "lato", sans-serif;
+    }
+    
+    
+    
+    
+    .responsive-table tr {
+      border-radius: 3px;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .responsive-table .table-header {
+      background-color: #95A5A6;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    /* .responsive-table .table-row {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    }
+    .responsive-table .col-1 {
+      flex-basis: 10%;
+    }
+    .responsive-table .col-2 {
+      flex-basis: 40%;
+    }
+    .responsive-table .col-3 {
+      flex-basis: 25%;
+    }*/
+    /* th {
+      papdding:
+    }  */
+    /* td{
+        margin-left: 0%;
+    }
+     */
+        </style>
 
 </body>
 </html> 
